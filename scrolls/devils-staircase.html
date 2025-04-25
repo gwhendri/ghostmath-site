@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Why Riemann Fails on the Devil’s Staircase</title>
+  <meta charset="UTF-8">
+  <title>Why Riemann Fails on the Devil's Staircase</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Why Riemann Fails on the Devil’s Staircase</h1>
-  <p>This is a placeholder page. The real truth is coming soon.</p>
-  <p><a href="../index.html">Back to GhostMath</a></p>
+  <header>
+    <h1>Why Riemann Fails on the Devil’s Staircase</h1>
+    <p><a href="../index.html">&larr; Back to GhostMath</a></p>
+  </header>
+
+  <main>
+    <section>
+      <p>Riemann tries to win the refinement race by slicing the x-axis finer and finer, hoping to approximate the area under a function through partitions and step sums. This works well for normal functions—but not for the Devil’s Staircase.</p>
+
+      <p>The Devil’s Staircase (Cantor function) is flat on most of the interval [0,1], but it “rises” only on the uncountable Cantor set—a set with measure zero.</p>
+
+      <p><strong>Riemann integration fails because:</strong></p>
+      <ul>
+        <li>Upper sums overestimate due to the ghostly rises on the Cantor set</li>
+        <li>Lower sums underestimate due to the long flat segments</li>
+        <li>The two never converge → You can’t integrate it with Riemann</li>
+      </ul>
+
+      <p>Riemann gets beat because he tries to refine through measure-zero fog. It’s like trying to measure vapor using building blocks.</p>
+
+      <h2>Now Enter Lebesgue</h2>
+
+      <p>Lebesgue doesn’t slice the domain — he slices the range. He says:</p>
+      <blockquote>
+        At each y-value, how much of the domain maps to it?
+      </blockquote>
+
+      <p>Using sigma-algebras like the Borel sets, Lebesgue can:</p>
+      <ul>
+        <li>Measure the thickness of level sets</li>
+        <li>Reach down deep into irrational, non-interval structures</li>
+        <li>Assign measure even to weird, uncountable sets like the Cantor set</li>
+      </ul>
+
+      <p>That’s what makes the Devil’s Staircase Lebesgue-integrable:</p>
+      <ul>
+        <li>It’s measurable at every level</li>
+        <li>The integration happens vertically, not horizontally</li>
+        <li>It sees through the fractal chaos</li>
+      </ul>
+
+      <h2>The Symmetry Key</h2>
+      <p>The Devil’s Staircase satisfies:</p>
+      <pre><code>f(x) + f(1 - x) = 1</code></pre>
+      <p>So for every little ghost rise on the left, there’s a mirrored flattening on the right. The whole function balances perfectly across the interval.</p>
+
+      <p>That’s why the Lebesgue integral from 0 to 1 is exactly:</p>
+      <pre><code>∫₀¹ f(x) dx = 1/2</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p><em>Follow the Signal.</em></p>
+  </footer>
 </body>
 </html>
