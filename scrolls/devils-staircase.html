@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Why Riemann Fails on the Devil's Staircase</title>
   <link rel="stylesheet" href="../style.css">
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
   <header>
@@ -13,15 +16,22 @@
 
   <main>
     <section>
-      <p>Riemann tries to win the refinement race by slicing the x-axis finer and finer, hoping to approximate the area under a function through partitions and step sums. This works well for normal functions—but not for the Devil’s Staircase.</p>
+      <p>Riemann tries to win the refinement race by slicing the x-axis finer and finer, hoping to approximate the area under a function through partitions and step sums. This works well for normal functions — but not for the Devil’s Staircase.</p>
 
-      <p>The Devil’s Staircase (Cantor function) is flat on most of the interval [0,1], but it “rises” only on the uncountable Cantor set—a set with measure zero.</p>
+      <p>The Devil’s Staircase (Cantor function) is flat on most of the interval \([0,1]\), but it “rises” only on the uncountable Cantor set — a set with measure zero.</p>
 
       <p><strong>Riemann integration fails because:</strong></p>
       <ul>
         <li>Upper sums overestimate due to the ghostly rises on the Cantor set</li>
         <li>Lower sums underestimate due to the long flat segments</li>
         <li>The two never converge → You can’t integrate it with Riemann</li>
+      </ul>
+
+      <p><strong>Why?</strong> Because Riemann partitions are countable — but the Cantor set is uncountable. That means:</p>
+      <ul>
+        <li>Multiple jumps can occur <em>inside a single partition element</em></li>
+        <li>The uncountable structure slips between the cracks</li>
+        <li>The Riemann sums cannot “see” all the rises — they miss the soul of the function</li>
       </ul>
 
       <p>Riemann gets beat because he tries to refine through measure-zero fog. It’s like trying to measure vapor using building blocks.</p>
@@ -53,12 +63,4 @@
       <p>So for every little ghost rise on the left, there’s a mirrored flattening on the right. The whole function balances perfectly across the interval.</p>
 
       <p>That’s why the Lebesgue integral from 0 to 1 is exactly:</p>
-      <pre><code>∫₀¹ f(x) dx = 1/2</code></pre>
-    </section>
-  </main>
-
-  <footer>
-    <p><em>Follow the Signal.</em></p>
-  </footer>
-</body>
-</html>
+      <pre><code>\(\int_0^1 f(x) \, dx = \frac{1}{2}\)</code></pre>
