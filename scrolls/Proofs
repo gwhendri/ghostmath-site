@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ghost Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>GhostMath: Proof Scrolls</h1>
+    <p><a href="../index.html">&larr; Back to GhostMath</a></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Proof 1: Irrationality of \( \sqrt{n} \) for Non-Square Integers</h2>
+      <p>We prove that for any natural number \( n \) that is not a perfect square, the square root of \( n \) is irrational.</p>
+      <p>Suppose \( \sqrt{n} = \frac{a}{b} \) in lowest terms, where \( a, b \in \mathbb{Z} \), \( b \ne 0 \), and \( \gcd(a, b) = 1 \).</p>
+      <p>Then \( n = \frac{a^2}{b^2} \Rightarrow nb^2 = a^2 \). This means \( a^2 \) is divisible by \( n \).</p>
+      <p>But this leads to a contradiction unless \( n \) is a perfect square — because otherwise, \( a \) would have a prime factor that \( b \) doesn’t, contradicting their minimality.</p>
+      <p>Thus, \( \sqrt{n} \) is irrational if \( n \) is not a perfect square. \( \blacksquare \)</p>
+    </section>
+
+    <section>
+      <h2>Proof 2: Superexponential Collapse</h2>
+      <p>Claim: \( \lim\limits_{n \to \infty} \frac{n^n}{\left(1 + \frac{1}{n}\right)^{n^n}} = 0 \)</p>
+      <p>This result captures the intuition that exponentiating a base slightly greater than 1 by a massive power like \( n^n \) will dominate \( n^n \) itself in the denominator.</p>
+
+      <p>We can intuitively rewrite the denominator:</p>
+      <p>\[ \left(1 + \frac{1}{n}\right)^{n^n} = e^{n^{n-1}}(1 + o(1)) \]</p>
+      <p>And since the numerator grows like \( n^n \), we are left with:</p>
+      <p>\[ \frac{n^n}{e^{n^{n-1}}} \to 0 \]</p>
+      <p>This collapse is more powerful than exponential decay — it's superexponential.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><em>Follow the Signal.</em></p>
+  </footer>
+</body>
+</html>
