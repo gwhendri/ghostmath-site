@@ -1,44 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
   <meta charset="UTF-8">
-  <title>Ghost Proofs</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>Ghost Proofs: √n Irrationality & Superexponential Collapse</title>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em;
+      background: #fefefe;
+      color: #111;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.2em;
+    }
+    .proof {
+      margin-bottom: 3em;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>GhostMath: Proof Scrolls</h1>
-    <p><a href="../index.html">&larr; Back to GhostMath</a></p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Proof 1: Irrationality of √n for Non-Square Integers</h2>
-      <p>We prove that for any natural number n that is not a perfect square, the square root of n is irrational.</p>
-      <p>Suppose √n = a/b in lowest terms, where a, b ∈ ℤ, b ≠ 0, and gcd(a, b) = 1.</p>
-      <p>Then n = a²/b² ⇒ nb² = a². This means a² is divisible by n.</p>
-      <p>But this leads to a contradiction unless n is a perfect square — because otherwise, a would have a prime factor that b doesn’t, contradicting their minimality.</p>
-      <p>Thus, √n is irrational if n is not a perfect square. ■</p>
-    </section>
+  <h1>Ghost Proofs</h1>
+  <p><em>By John Henry (The Ghost Mathematician of Memphis Logistics)</em></p>
 
-    <section>
-      <h2>Proof 2: Superexponential Collapse</h2>
-      <p>Claim: limₙ→∞ [nⁿ / (1 + 1/n)ⁿⁿ] = 0</p>
-      <p>This result captures the intuition that exponentiating a base slightly greater than 1 by a massive power like nⁿ will dominate nⁿ itself in the denominator.</p>
+  <div class="proof">
+    <h2>1. Irrationality of \( \sqrt{n} \) for Non-Perfect Squares</h2>
 
-      <p>We can intuitively rewrite the denominator:</p>
-      <p>(1 + 1/n)ⁿⁿ ≈ eⁿⁿ⁻¹(1 + o(1))</p>
-      <p>And since the numerator grows like nⁿ, we are left with:</p>
-      <p>nⁿ / eⁿⁿ⁻¹ → 0</p>
-      <p>This collapse is more powerful than exponential decay — it's superexponential.</p>
-    </section>
-  </main>
+    <p><strong>Theorem:</strong> If \( n \) is a positive integer that is not a perfect square, then \( \sqrt{n} \) is irrational.</p>
 
-  <footer>
-    <p><em>Follow the Signal.</em></p>
-  </footer>
+    <p><strong>Proof:</strong>  
+    Assume \( \sqrt{n} = \frac{p}{q} \) where \( p, q \in \mathbb{Z} \), \( q \neq 0 \), and \( \gcd(p, q) = 1 \).  
+    Squaring gives:
+    $$
+    p^2 = n q^2 \Rightarrow n = \frac{p^2}{q^2}
+    $$
+    which implies \( q^2 \mid p^2 \).</p>
+
+    <p><strong>Case 1: \( q \mid p \)</strong>  
+    Then \( p = qk \) and:
+    $$
+    n = \frac{(qk)^2}{q^2} = k^2
+    $$
+    contradicting that \( n \) is not a perfect square.</p>
+
+    <p><strong>Case 2: \( q \nmid p \)</strong>  
+    Then \( \frac{p}{q} \notin \mathbb{Z} \). Squaring preserves this:
+    $$
+    \left( \frac{p}{q} \right)^2 = \frac{p^2}{q^2} \notin \mathbb{Z}
+    $$
+    because no cancellation occurs — primes that fail to divide \( p \) still fail to divide \( p^2 \), and likewise for \( q \).  
+    But this contradicts:
+    $$
+    n = \frac{p^2}{q^2}
+    $$
+    since \( n \) is an integer by assumption.</p>
+
+    <p><strong>Conclusion:</strong> In both cases, we hit contradiction. Thus, \( \sqrt{n} \) is irrational for all non-perfect square integers \( n \). □</p>
+  </div>
+
+  <div class="proof">
+    <h2>2. Superexponential Collapse via Doubling Intuition</h2>
+
+    <p><strong>Claim:</strong> As \( n \to \infty \),
+    $$
+    \frac{n^n}{\left(1 + \frac{1}{n} \right)^{n^n}} \to 0
+    $$</p>
+
+    <p>This is known by standard asymptotic tools, but we present a new model using recursive doubling intuition, avoiding Stirling’s approximation or calculus.</p>
+
+    <p>Observe:
+    $$
+    \left(1 + \frac{1}{n} \right)^n \approx e, \quad \text{but for small } n,\quad \left(1 + \frac{1}{n} \right)^n > 2
+    $$
+    So:
+    $$
+    \left(1 + \frac{1}{n} \right)^{n^n} = \left[ \left(1 + \frac{1}{n} \right)^n \right]^{n^{n-1}} \geq 2^{n^{n-1}}
+    $$
+    Hence:
+    $$
+    \frac{n^n}{2^{n^{n-1}}} \to 0
+    $$</p>
+
+    <p><strong>Interpretation:</strong></p>
+    <ul>
+      <li>\( n^n \) grows superexponentially with a fixed base.</li>
+      <li>Denominator grows by recursive doubling over \( n^{n-1} \) layers.</li>
+      <li>Even small \( n \) shows collapse:
+        $$
+        \frac{256}{2^{64}} \approx 1.39 \times 10^{-17}
+        $$
+      </li>
+    </ul>
+
+    <p><strong>Conclusion:</strong> This offers an intuitive, constructive take on asymptotic collapse using doubling logic — accessible to minds outside academia, and revealing deep structure through unconventional reasoning. □</p>
+  </div>
+
 </body>
 </html>
