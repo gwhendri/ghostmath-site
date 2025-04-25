@@ -1,1 +1,0 @@
-# ghostmath-site
